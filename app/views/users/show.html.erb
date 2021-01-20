@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="dm">
+    <h1 style="margin-top: 50px">Userlist</h1>
+
+    <p>Anzahl Benutzer: <%=User.count%>
+    <p>Name des 1. benutzers in der Datenbank: <%=User.first.name%></p>
+    <%u=User.first%>
+    <p>Email des 1. Benutzers in der Datenbank: <%=u.email%>
+
+    <p>Alter des 1. Benutzers in der Datenbank: <%=u.age%>
+
+
+      <ol>
+        <% User.all.each do |u| %>
+        <li>
+          <ul>
+            <%=u.name%>
+          </ul>
+          <ul>
+            Email: <a href="mailto:<%=u.email%>"><%=u.email%></a>
+          </ul>
+          <ul>
+            Alter: <%=u.age%>
+          </ul>
+        </li>
+        <% end %>
+      </ol>
+      </div>
+    </div>
+  </body>
+</html>

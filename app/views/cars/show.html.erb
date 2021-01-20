@@ -1,0 +1,36 @@
+<div class="container">
+  <table class="table">
+    <thead class="thead-light">
+    <tr>
+      <th>namen ändern show</th>
+      <th colspan="2">model</th>
+      <th colspan="2">producer</th>
+      <th colspan="2">fuel</th>
+      <th colspan="2">usage</th>
+      <th colspan="2">year</th>
+    </tr>
+    </thead>
+          <tr>
+            <td>
+              <%= @car.model %>
+            </td>
+            <td>
+              <%= @car.producer_id %>
+            </td>
+            <td>
+              <%= @car.fuel %>
+            </td>
+            <td>
+              <%= @car.usage %>
+            </td>
+            <td>
+              <%= @car.year %>
+            </td>
+          </tr>
+    <tr>
+    </tr>
+  </table>
+</div>
+<td><%= link_to "Ändern", edit_car_path(@car.id) %></td>
+<td><%= link_to "Löschen", cars_path(@car.id), method: :delete,
+                data: { confirm: "Sind Sie sicher?" } %></td>

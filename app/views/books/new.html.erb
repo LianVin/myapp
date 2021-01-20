@@ -1,0 +1,32 @@
+<div class="container">
+  <table class="table table-hover">
+    <thead class="thead-light">
+      <tr>
+        <th>Buch erstellen</th>
+        <th colspan="2">Aktion</th>
+      </tr>
+    </thead>
+  <tbody>
+  <%= form_with model: @book, url: {action: "create"} do |f| %>
+  <tr>
+    <td><p>Titel:</p></td>
+    <td><%= f.text_field :title %></td>
+  </tr>
+  <tr>
+    <td><p>Subject:</p></td>
+    <td><%= f.collection_select :subject_id, @subjects, :id, :name %></td>
+  </tr>
+  <tr>
+    <td><p>Description:</p></td>
+    <td><%= f.text_area :description %></td>
+  </tr>
+  <tr>
+    <td><p>Preis:</p></td>
+    <td><%= f.text_area :price %></td>
+  </tr>
+</tbody>
+<table class="table table-hover">
+      <%= submit_tag "Buch speichern"%>
+    <%= link_to "Abbrechen", index_books_path %>
+  <% end %>
+</div>

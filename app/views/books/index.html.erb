@@ -1,0 +1,22 @@
+<div class="container">
+    <table class="table table-hover">
+      <thead class="thead-light">
+        <tr>
+          <th>Titel</th>
+          <th colspan="2">Aktion</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @books.each do |b| %>
+          <tr>
+            <td><%= link_to b.title, show_book_path(b.id) %></td>
+            <td><%= link_to "Ändern", edit_book_path(b.id) %></td>
+            <td><%= link_to "Löschen", delete_book_path(b.id), method: :delete,
+                data: { confirm: "Sind Sie sicher?" } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <%= link_to "Neues Buch erfassen", new_book_url %><br />
+  <%= link_to "Fachgebiete", subjects_path %>
+</div>

@@ -1,0 +1,31 @@
+<div class="container">
+  <table class="table table-hover">
+    <thead class="thead-light">
+    <tr>
+      <th>Model</th>
+      <th>Fuel</th>
+      <th>Usage</th>
+      <th>year</th>
+      <th>producer</th>
+      <th>100km/liter</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @cars.each do |c| %>
+      <tr>
+        <td><%= c.model %></td>
+        <td><%= c.fuel %></td>
+        <td><%= c.usage %></td>
+        <td><%= c.year %></td>
+        <td><%= c.producer_id %></td>
+        <td><%= (c.fuel  / c.usage) * 100 %></td>
+      </tr>
+    <% end %>
+    <td>durchschnitt fuel</td>
+    <td><%= Car.average(:fuel) %>
+    <td>durchschnitt 100km/liter</td>
+    <td><%= (Car.average(:fuel) / Car.average(:usage)) * 100 %>
+    </tbody>
+  </table>
+  <%= link_to "Neues Car erfassen", new_car_url %><br />
+</div>

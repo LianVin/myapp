@@ -1,0 +1,11 @@
+<div class="container">
+  <%= form_with model: @car, url: cars_path do |f| %>
+    model:<%= f.text_field :model %><br />
+    fuel:<%= f.text_field :fuel %><br />
+    usage:<%= f.text_field :usage %><br />
+    year:<%= f.text_field :year %><br />
+    producers:<%= f.collection_select :producer_id, @producer, :id, :name %><br />
+    <%= submit_tag "Kanal speichern"%>
+    <%= link_to "Abbrechen", cars_path %>
+  <% end %>
+</div>
